@@ -106,7 +106,7 @@ export const SignUpForm = () => {
               </button>
 
               <p className="text-gray-300 text-center mt-2">
-                Or{" "}
+                
                 <a href="/login" className="text-blue-400 hover:underline">
                   Login
                 </a>
