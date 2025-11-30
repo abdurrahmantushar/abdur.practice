@@ -1,9 +1,11 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { Link, useSearchParams } from "react-router-dom";
+import { IoMdSearch } from "react-icons/io";
 import debounce from "lodash.debounce";
 
+
 export const Products = () => {
-  const [searchParams, setSearchParams] = useSearchParams({ skip: 0, limit: 10 });
+  const [searchParams, setSearchParams] = useSearchParams({ skip: 0, limit: 8 });
 
   const skip = parseInt(searchParams.get("skip") || 0);
   const limit = parseInt(searchParams.get("limit") || 5);
@@ -39,13 +41,22 @@ export const Products = () => {
     });
   };
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return(
+    <div className="flex items-center justify-center h-screen">
+      <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-500"></div>
+    </div>
+  );;
 
   return (
-    <div className="p-4">
+    <div className="p-4 ">
+     <div className=" flex gap-[1150px] ml-20 mb-10 ">
+      <div className=" border outline-none w-[14%] h-[30px] gap-1.5 rounded-xl mb-3 flex items-center">
+
+      <IoMdSearch  className=" ml-2"/>  
       <input
+      className="border-none outline-none focus:border-none focus:outline-none"
         type="text"
-        placeholder="Search"
+        placeholder="Search here.."
         onChange={debounce((event) => {
           setSearchParams((prev) => {
             prev.set("q", event.target.value);
@@ -54,9 +65,11 @@ export const Products = () => {
             return prev;
           });
         }, 1000)}
-        className="mb-4 p-2 border rounded w-full"
+        
       />
+      </div>
       <select
+      
         onChange={(e) => {
           setSearchParams((prev) => {
             prev.set("category", e.target.value);
@@ -65,7 +78,7 @@ export const Products = () => {
           });
         }}
         value={category}
-        className="mb-4 p-2 border rounded w-full"
+        className=" border-black border rounded-xl w-[11%] "
       >
         <option value="">Select Category</option>
         {categories?.map((cat) => (
@@ -74,12 +87,13 @@ export const Products = () => {
           </option>
         ))}
       </select>
+      </div>
 
-      <section className="grid grid-cols-4 gap-2">
+      <section className="grid grid-cols-4 gap-2 font-mono ml-40">
         {products?.map((product) => (
           <article
             key={product.id}
-            className="w-60 p-2 bg-white rounded-xl font-semibold hover:scale-105 hover:-translate-y-1 transition-transform duration-300"
+            className="w-60 p-2 bg-white rounded-xl font-semibold hover:scale-105 hover:-translate-y-1 transition-transform duration-300 shadow-xl"
           >
             <img
               className="h-40 object-cover rounded-xl"

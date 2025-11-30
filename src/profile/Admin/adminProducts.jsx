@@ -41,7 +41,7 @@ export const AdminProduct = () => {
   if (isLoading) return <p>Loading products...</p>;
   if (error) return <p>{error.message}</p>;
 
-  // const totalPages = Math.ceil((data?.total || 0) / limit);
+
 
   return (
     <div className="p-4">

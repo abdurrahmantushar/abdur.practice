@@ -4,7 +4,7 @@ export const SigleProductsDetails = () => {
   const { state } = useLocation();
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="flex items-center justify-center h-screen font-mono bg-gray-100">
       <article className="flex  p-10 max-w-5xl w-full hover:-translate-y-1 transition-transform duration-300">
 
         <div className="flex-1 pr-10 flex flex-col justify-center">
