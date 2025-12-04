@@ -5,13 +5,17 @@ import App from './App.jsx'
 import { Provider } from 'react-redux'
 
 import { Store } from './app.store/reduxstore.jsx'
+import { UserContext } from './CustomComponents/contextApi.jsx'
 
 const queryClient = new QueryClient()
 createRoot(document.getElementById('root')).render(
 
+
 <Provider store={Store}>
     <QueryClientProvider client={queryClient}> 
+        <UserContext>
         <App />
+    </UserContext>
     </QueryClientProvider>
 </Provider>
 )

@@ -8,12 +8,6 @@ const initialState = {
   error: null
 };
 
-// export const fetchProducts = createAsyncThunk(
-//   "products/fetchProducts",
-//   async () => {
-//     const res = await axios.get(serverUrl);
-//     return res.data; 
-//   });
 
 export const addProducts = createAsyncThunk(
   'products/addProducts',
@@ -43,18 +37,7 @@ export const productsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // .addCase(fetchProducts.pending, (state) => {
-      //   state.isLoading = true;
-      //   state.error = null;
-      // })
-      // .addCase(fetchProducts.fulfilled, (state, action) => {
-      //   state.isLoading = false;
-      //   state.products = action.payload; 
-      // })
-      // .addCase(fetchProducts.rejected, (state, action) => {
-      //   state.isLoading = false;
-      //   state.error = action.error.message;
-      // })
+
       .addCase( addProducts.fulfilled,(state,action)=>{
         state.products.push(action.payload)
       })

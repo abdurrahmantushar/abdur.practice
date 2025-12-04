@@ -15,7 +15,7 @@ export const Header = () => {
   };
 
   return (
-    <div className="bg-gray-200 p-5 font-mono">
+    <div className="bg-gray-100 p-5 font-mono">
       <ul className="flex justify-end">
         <li className="text-[20px] font-semibold pr-10 hover:underline hover:-translate-y-1">
           <Link to="/">Home</Link>
